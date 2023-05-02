@@ -1,0 +1,41 @@
+:root {
+    --paradise: #ef476f;
+    --crayola: #FFD166;
+    --green: #06D6A0;
+    --powder: #FFEABA;
+}
+
+body {
+    background: var(--powder);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 360px;
+    grid-template-areas: 
+    "green-box yellow-box"
+    "red-box red-box";
+}
+
+.box {
+    padding: 4rem;
+    flex-grow: 1;
+}
+
+.red {
+    background: var(--paradise);
+    grid-area: red-box;
+}
+
+.yellow {
+    background: var(--crayola);
+    grid-area: yellow-box;
+}
+
+.green  {
+    background: var(--green);
+    grid-column: span 2;
+    grid-area: green-box;
+}
