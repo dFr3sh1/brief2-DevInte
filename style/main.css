@@ -1,18 +1,24 @@
 * {
     display:grid ;
+    box-sizing: border-box;
 }
 
 body {
     display: grid;
-    grid-template-columns: 70px repeat(3, 1fr) 30px;
+    width: 1200px;
+    grid-template-columns: 70px repeat(3, 1fr);
     grid-gap: 10px;
-    grid-template-rows: 2;
-    grid-auto-rows: minmax(auto, auto);
+    grid-template-rows: 370px 985px 250px;
     margin: 2%;
     padding: 20px;
+    grid-template-areas: 
+    "left_side header header header"
+    "left_side aside_article firstArticle firstArticle"
+    "left_side footer footer footer";
 }   
 
 .left_side_grid {
+    /*grid-area: 1 / 1 / 4 / 2;*/
     writing-mode: vertical-lr;
     transform: rotate(180deg);
     width: 100%;
@@ -20,16 +26,17 @@ body {
     flex-direction: row-reverse;
     flex-wrap: nowrap;
     align-items: center;
+    justify-content: space-evenly;
+    grid-area: left_side;
 }
 
-.asideColumn{
-    margin: 50px 0;
+.asideColumn {
+    margin: 5px 0;
     transform: rotate(90deg);
 }
 
 header {
-    grid-column-start: 2;
-    grid-column-end: last;
+    /*grid-area: 1 / 2 / 2 / 5;*/
     width: 1200px;
     height: 370px;
     display: flex;
@@ -37,6 +44,7 @@ header {
     align-items: center;
     flex-direction: row;
     border-bottom: solid 1px black;
+    grid-area: header;
 
 }
 
@@ -103,13 +111,13 @@ header div.minAvec p {
 }
 
 main {
-    grid-column-start: 2;
-    grid-column-end: last;
+    grid-area: 2 / 2 / 3 / 5;
     width: 1200px;
     height: 44px;
+    /*grid-area: aside_article firstArticle;*/
 }
 
-main div.centralMain {
+main div.centralMain {  
     border-bottom: solid  1px black;
     display: flex;
     flex-direction: row-reverse;
@@ -117,10 +125,10 @@ main div.centralMain {
     align-items: flex-start;
     width: 1200px;
     height: 982px;
+   
 }
 
 main div.newsData {
-    grid-column-start: 1;
     grid-column-end: last;
     width: 1200px;
     height: 30px;
@@ -196,6 +204,7 @@ div.firstPage {
 article {
     grid-column: 2;
     grid-row: 1;
+    /*grid-area: firstArticle;*/
 }
 
 div.firstPage figure {
@@ -207,13 +216,13 @@ div.firstPage figure {
 } 
 
 div.firstPage figure img {
-    width: 60%;
-    height: 116%;
+    width: 1050px;
+    height: 950px;
     object-fit: cover;
     position: absolute;
     z-index: -1;
-    margin-left: -29%;
-    padding-left: 26%;
+    margin-left: -12%;
+    padding-left: 10%;
 }
 
 div.firstPage figure img div {
@@ -246,19 +255,26 @@ p.MainImgParag {
     margin-right: -10%;
 }
 
-footer.central {
-    margin-left: 3%;
-    margin-top: -21%;
+footer {
+    grid-area: 3 / 2 / 4 / 5;
+    width: 1200px;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /*grid-area: footer footer;*/
 }
 
 footer.central figure {
     display: flex;
-    width: 1220px;
-    height: 182px;
+    width: 100%;
+    height: 100%;
+    margin-right: 5%;
 }
 
 img.base {
-    width: 124%;
-    height: 100%;
-    object-fit: cover;
+  width: 1200px;
+  height: fit-content;
+  object-fit:fill;
+  margin-left: -3.5%;
 }
